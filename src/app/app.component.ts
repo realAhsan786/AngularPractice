@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet,RouterLink } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule,HeaderComponent,FooterComponent, FormsModule],
+  imports: [CommonModule,HeaderComponent,FooterComponent, FormsModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
