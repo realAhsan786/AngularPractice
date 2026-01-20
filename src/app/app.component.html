@@ -1,0 +1,110 @@
+<app-header></app-header>
+
+
+<h1>Main App Component</h1>
+<h1>{{ title }}</h1>
+<p>My name is {{ name }}</p> 
+
+<p>My age is {{ 18 }}</p> 
+
+   <!-- *********************** Data Binding *********************** -->
+
+
+<button [disabled]="isDisabled">Click Me</button>
+<br>
+<button (click)="showMessage()">Click</button>
+<br>
+<button 
+  [disabled]="false"
+  (click)="showMessage()">
+  Click Me
+</button>
+<br><br>
+<input type="text" [(ngModel)]="username" placeholder="Enter your name"> <br>
+<input type="number" [(ngModel)]="age" placeholder="Enter your age"><br>
+<input type="email" [(ngModel)]="email" placeholder="Enter your email"><br>
+
+<p>Your name is: {{ username }}</p>
+<p>Your age is: {{ age }}</p>
+<p>Your email is: {{ email }}</p>
+
+
+
+   <!-- *********************** Directives *********************** -->
+
+
+<button (click)="isLoggedIn = !isLoggedIn">
+  Toggle Login
+</button>
+
+<p *ngIf="isLoggedIn">Welcome User!</p>
+
+<br>
+
+<ul>
+  <li *ngFor="let fruit of fruits">
+    {{ fruit }}
+  </li>
+</ul>
+
+<br>
+
+<input type="text" [(ngModel)]="role" placeholder="Enter your role"><br>
+
+
+<div [ngSwitch]="role">
+
+  <p *ngSwitchCase="'admin'">Admin Panel</p>
+  <p *ngSwitchCase="'user'">User Dashboard</p>
+  <p *ngSwitchDefault>Default Guest</p>
+
+</div>
+
+<ul>
+  <li *ngFor="let student of students">
+    {{student}}
+  </li>
+
+</ul>
+
+
+<!-- Attribute Directives -->
+<p [ngClass]="isActive ? 'active' : 'inactive'">
+  User Status
+</p>
+
+<button (click)="isActive = !isActive">
+  Toggle Status
+</button>
+
+<p [ngStyle]="{ color: textColor, 'font-size': fontSize }">
+  Styled Text
+</p>
+
+
+<button (click)="isActiveBtn = !isActiveBtn" [ngStyle]="{color: isActiveBtn? 'green' : 'red'}">
+  Toggle Status
+</button>
+
+    <!-- *********************** Pipes *********************** -->
+<p>{{ testText | uppercase }}</p>
+<p>{{ testText | lowercase }}</p>
+
+<p>{{ today | date }}</p>
+<p>{{ today | date:'short' }}</p>
+<p>{{ today | date:'fullDate' }}</p>
+
+
+   <!-- // *********************** Services *********************** -->
+
+<ul>
+  <li *ngFor="let user of users">{{ user }}</li>
+</ul>
+
+
+   <!-- // *********************** Routers *********************** -->
+
+
+
+<app-footer></app-footer>
+
