@@ -107,11 +107,47 @@
 <nav>
   <a routerLink="/">Home</a>
   <a routerLink="/about">About</a>
-  <a routerLink="/about" routerLinkActive="active">About</a>
 
 </nav>
 
 <router-outlet></router-outlet>
+
+
+   <!-- // *********************** Forms *********************** -->
+
+   <h2>Login</h2>
+
+<form #loginForm="ngForm" (ngSubmit)="login()">
+
+  <input
+    type="text"
+    name="username"
+    [(ngModel)]="username"
+    required
+    #user="ngModel">
+
+  <div *ngIf="user.invalid && user.touched">
+    Username required
+  </div>
+
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="password"
+    required
+    minlength="6"
+    #pass="ngModel">
+
+  <div *ngIf="pass.invalid && pass.touched">
+    Password min 6 chars
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">
+    Login
+  </button>
+
+</form>
+
 
 
 <app-footer></app-footer>

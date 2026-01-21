@@ -25,7 +25,7 @@ export class AppComponent {
     
   }
   
-   username = '';
+   username1 = '';
    age = null;   
    email = '';
 
@@ -60,5 +60,19 @@ export class AppComponent {
 
     constructor(private userService: UserService) {
     this.users = this.userService.getUsers();
+
+
+
+       
+        
+  }
+
+  // *********************** Forms ***********************
+  username = '';
+  password = '';
+
+  login() {
+    //console.log(this.username, this.password);
+    alert(this.username + this.password);
   }
 }
