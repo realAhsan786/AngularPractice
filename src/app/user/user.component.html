@@ -1,4 +1,7 @@
-<p>user works!</p>
+<h2>User List</h2>
 
-
-<a [routerLink]="['/user', 5]">View User 5</a>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}
+  </li>
+</ul>

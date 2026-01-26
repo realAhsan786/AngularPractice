@@ -5,11 +5,12 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from './user.service';
+import { UserComponent } from './user/user.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule,HeaderComponent,FooterComponent, FormsModule, RouterOutlet, RouterLink],
+  imports: [CommonModule,HeaderComponent,FooterComponent, FormsModule, RouterOutlet, RouterLink, UserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

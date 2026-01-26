@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../user.service';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-user',
-  imports: [],
-template: `
-    <h2>User ID: {{ userId }}</h2>
-  `
+  imports: [CommonModule],
+  templateUrl: './user.component.html'
 })
-export class UserComponent {
-userId: string | null = '';
 
-constructor(private route: ActivatedRoute) {
-    this.userId = this.route.snapshot.paramMap.get('id');
+
+export class UserComponent implements OnInit{
+users: any[] = [];
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.userService.getAllUsers().subscribe(data => {
+      this.users = data as any[];
+    });
   }
+
 }
